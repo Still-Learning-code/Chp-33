@@ -1,0 +1,28 @@
+/chp 33 Lambdas instances of function types can be stored in variables ,passed as arguments
+// Function types 1st class citizens . can be assigned to variables passed as arguments,returned from other functions
+
+fun interface MyFunctionalInterface {
+    fun execute ()
+
+}
+
+fun main (){
+val square:(Int) -> Int = { value ->
+    value * value
+}
+    val square2:(Int) -> Int = {
+        it * it
+    }
+
+    val printMessage = {message:String->
+      "Test"
+    }
+    val sumWithReceiver: Int.() ->  Int ={
+        this + 1
+    }
+    val funInterfaceimpl: MyFunctionalInterface = MyFunctionalInterface {
+        println("executing")
+    }
+    funInterfaceimpl.execute()
+
+}
